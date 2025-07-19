@@ -97,8 +97,8 @@ export const HeroSection = () => {
             {/* Floating Stats */}
             <div className="absolute -top-6 -left-6 bg-card border border-border rounded-xl p-4 shadow-medium animate-scale-in">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">24/7</div>
-                <div className="text-xs text-muted-foreground">Monitoring</div>
+                <div className="text-2xl font-bold text-primary">🌾</div>
+                <div className="text-xs text-muted-foreground">Smart Farming</div>
               </div>
             </div>
           </div>

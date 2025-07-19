@@ -7,7 +7,8 @@ export const VisitorsSection = () => {
       date: "08.01.2025",
       name: "Cmde Sridhar Kotra",
       organization: "Agri Matrix India Pvt Ltd",
-      comment: "First Hub in India"
+      comment: "First Hub in India",
+      image: "/lovable-uploads/7b24d5be-8465-42ea-8704-7e1ccc6ad997.png"
     },
     {
       date: "22.03.2025", 
@@ -99,6 +100,11 @@ export const VisitorsSection = () => {
         <div className="mb-12 animate-scale-in">
           <Card className="bg-gradient-primary/5 border-primary/20 hover:shadow-strong transition-all duration-300">
             <CardHeader className="text-center">
+              <img 
+                src="/lovable-uploads/7b24d5be-8465-42ea-8704-7e1ccc6ad997.png" 
+                alt="Cmde Sridhar Kotra visit to SiDRA Hub"
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
               <div className="bg-gradient-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="h-8 w-8 text-primary" />
               </div>
