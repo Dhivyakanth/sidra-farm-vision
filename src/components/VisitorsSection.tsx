@@ -96,34 +96,10 @@ export const VisitorsSection = () => {
           </p>
         </div>
 
-        {/* Featured Visitor */}
-        <div className="mb-12 animate-scale-in">
-          <Card className="bg-gradient-primary/5 border-primary/20 hover:shadow-strong transition-all duration-300">
-            <CardHeader className="text-center">
-              <img 
-                src="/lovable-uploads/7b24d5be-8465-42ea-8704-7e1ccc6ad997.png" 
-                alt="Cmde Sridhar Kotra visit to SiDRA Hub"
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <div className="bg-gradient-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="h-8 w-8 text-primary" />
-              </div>
-              <CardTitle className="text-2xl text-primary">First Hub in India!</CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-lg font-semibold text-foreground mb-2">Cmde Sridhar Kotra</p>
-              <p className="text-muted-foreground mb-4">Agri Matrix India Pvt Ltd</p>
-              <div className="bg-wheat-gold/20 p-4 rounded-lg inline-block">
-                <Quote className="h-5 w-5 text-primary mb-2" />
-                <p className="text-foreground font-medium">"First Hub in India"</p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
 
         {/* Visitors Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {visitors.slice(1).map((visitor, index) => (
+          {visitors.map((visitor, index) => (
             <Card key={index} className="hover:shadow-medium transition-all duration-300 hover:scale-105 animate-slide-up" style={{ animationDelay: `${index * 100}ms` }}>
               <CardHeader className="pb-3">
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-2">
