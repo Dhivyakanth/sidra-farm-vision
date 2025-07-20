@@ -5,55 +5,36 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Check } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const PricingSection = () => {
+  const { t } = useLanguage();
   const [selectedPlan, setSelectedPlan] = useState<any>(null);
   const [landArea, setLandArea] = useState("");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const plans = [
     {
-      name: "Basic",
-      price: "₹120",
-      period: "per acre per month",
+      name: t('pricing.basic.name'),
+      price: t('pricing.basic.price'),
+      period: t('pricing.basic.period'),
       description: "Perfect for getting started with smart farming",
-      features: [
-        "Satellite imagery analysis",
-        "Crop health monitoring",
-        "Weather predictions",
-        "Soil moisture data",
-        "Basic analytics reports",
-        "WhatsApp notifications"
-      ]
+      features: t('pricing.features')
     },
     {
-      name: "Standard",
-      price: "₹300",
-      period: "per acre for 3 months",
+      name: t('pricing.standard.name'),
+      price: t('pricing.standard.price'),
+      period: t('pricing.standard.period'),
       description: "Great value for seasonal planning",
-      features: [
-        "Satellite imagery analysis",
-        "Crop health monitoring", 
-        "Weather predictions",
-        "Soil moisture data",
-        "Advanced analytics reports",
-        "WhatsApp notifications"
-      ],
+      features: t('pricing.features'),
       popular: true
     },
     {
-      name: "Economy",
-      price: "₹1000",
-      period: "per acre for 1 year",
+      name: t('pricing.economy.name'),
+      price: t('pricing.economy.price'),
+      period: t('pricing.economy.period'),
       description: "Best value for long-term farming success",
-      features: [
-        "Satellite imagery analysis",
-        "Crop health monitoring",
-        "Weather predictions", 
-        "Soil moisture data",
-        "Premium analytics reports",
-        "WhatsApp notifications"
-      ]
+      features: t('pricing.features')
     }
   ];
 
@@ -86,10 +67,10 @@ const PricingSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Simple, Transparent Pricing
+            {t('pricing.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Choose the plan that fits your farming needs. Same great services, different durations.
+            {t('pricing.subtitle')}
           </p>
         </div>
 
@@ -138,7 +119,7 @@ const PricingSection = () => {
                   variant={plan.popular ? "default" : "outline"}
                   onClick={() => handleGetStarted(plan)}
                 >
-                  Get Started
+                  {t('common.getStarted')}
                 </Button>
               </CardContent>
             </Card>
@@ -155,25 +136,25 @@ const PricingSection = () => {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Get Started with {selectedPlan?.name} Plan</DialogTitle>
+            <DialogTitle>{t('pricing.dialog.title')}</DialogTitle>
             <DialogDescription>
-              Enter your land area to calculate the total amount and proceed with WhatsApp.
+              {t('pricing.dialog.description')}
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="area">Land Area (in acres)</Label>
+              <Label htmlFor="area">{t('pricing.dialog.landArea')}</Label>
               <Input
                 id="area"
                 type="number"
-                placeholder="Enter area in acres"
+                placeholder={t('pricing.dialog.placeholder')}
                 value={landArea}
                 onChange={(e) => setLandArea(e.target.value)}
               />
             </div>
             {landArea && selectedPlan && (
               <div className="p-4 bg-muted rounded-lg">
-                <div className="text-sm text-muted-foreground">Total Amount:</div>
+                <div className="text-sm text-muted-foreground">{t('pricing.dialog.total')}:</div>
                 <div className="text-2xl font-bold text-primary">
                   ₹{calculateTotal(selectedPlan, parseFloat(landArea))}
                 </div>
@@ -187,7 +168,7 @@ const PricingSection = () => {
               disabled={!landArea}
               className="w-full"
             >
-              Continue with WhatsApp
+              {t('pricing.dialog.calculate')}
             </Button>
           </div>
         </DialogContent>
