@@ -23,7 +23,7 @@ export const HeroSection = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                 SiDRA Hub
                 <span className="block text-3xl md:text-4xl lg:text-5xl text-primary mt-2">
-                  Smart Farming Made Simple
+                  Satellite Driven Rural Agro Hub (SiDRA Hub)
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
