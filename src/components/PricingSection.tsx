@@ -1,8 +1,16 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Check } from "lucide-react";
+import { useState } from "react";
 
 const PricingSection = () => {
+  const [selectedPlan, setSelectedPlan] = useState<any>(null);
+  const [landArea, setLandArea] = useState("");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   const plans = [
     {
       name: "Basic",
@@ -48,6 +56,30 @@ const PricingSection = () => {
       ]
     }
   ];
+
+  const calculateTotal = (plan: any, area: number) => {
+    const priceNum = parseInt(plan.price.replace('₹', ''));
+    return priceNum * area;
+  };
+
+  const handleGetStarted = (plan: any) => {
+    setSelectedPlan(plan);
+    setIsDialogOpen(true);
+  };
+
+  const handleSubmit = () => {
+    if (!landArea || !selectedPlan) return;
+    
+    const area = parseFloat(landArea);
+    const total = calculateTotal(selectedPlan, area);
+    
+    const message = `Hi! I'm interested in the ${selectedPlan.name} plan for ${area} acres. Total amount: ₹${total}. Please help me get started with SiDRA Hub services.`;
+    const whatsappUrl = `https://wa.me/919443520771?text=${encodeURIComponent(message)}`;
+    
+    window.open(whatsappUrl, '_blank');
+    setIsDialogOpen(false);
+    setLandArea("");
+  };
 
   return (
     <section id="pricing" className="py-20 bg-gradient-to-b from-background to-muted/30">
@@ -104,6 +136,7 @@ const PricingSection = () => {
                 <Button 
                   className={`w-full ${plan.popular ? 'bg-primary hover:bg-primary/90' : ''}`}
                   variant={plan.popular ? "default" : "outline"}
+                  onClick={() => handleGetStarted(plan)}
                 >
                   Get Started
                 </Button>
@@ -118,6 +151,47 @@ const PricingSection = () => {
           </p>
         </div>
       </div>
+
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Get Started with {selectedPlan?.name} Plan</DialogTitle>
+            <DialogDescription>
+              Enter your land area to calculate the total amount and proceed with WhatsApp.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="area">Land Area (in acres)</Label>
+              <Input
+                id="area"
+                type="number"
+                placeholder="Enter area in acres"
+                value={landArea}
+                onChange={(e) => setLandArea(e.target.value)}
+              />
+            </div>
+            {landArea && selectedPlan && (
+              <div className="p-4 bg-muted rounded-lg">
+                <div className="text-sm text-muted-foreground">Total Amount:</div>
+                <div className="text-2xl font-bold text-primary">
+                  ₹{calculateTotal(selectedPlan, parseFloat(landArea))}
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  {selectedPlan.name} plan for {landArea} acres
+                </div>
+              </div>
+            )}
+            <Button 
+              onClick={handleSubmit} 
+              disabled={!landArea}
+              className="w-full"
+            >
+              Continue with WhatsApp
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
