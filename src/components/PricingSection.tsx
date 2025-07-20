@@ -74,7 +74,7 @@ const PricingSection = () => {
     const total = calculateTotal(selectedPlan, area);
     
     const message = `Hi! I'm interested in the ${selectedPlan.name} plan for ${area} acres. Total amount: ₹${total}. Please help me get started with SiDRA Hub services.`;
-    const whatsappUrl = `https://wa.me/919443520771?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/919489243775?text=${encodeURIComponent(message)}`;
     
     window.open(whatsappUrl, '_blank');
     setIsDialogOpen(false);
