@@ -1,17 +1,19 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Target, Eye, Heart, Award } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const AboutSection = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="about" className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            About SiDRA Hub
+            {t('about.title')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            SiDRA Hub is a farmer support center using advanced technology to help you care for your crops. 
-            We monitor your field from the sky and give you simple, useful advice to grow better.
+            {t('about.subtitle')}
           </p>
         </div>
 

@@ -16,17 +16,12 @@ export const LanguageSelector = () => {
   const { setLanguage, t } = useLanguage();
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language');
-    const hasSeenSelector = localStorage.getItem('hasSeenLanguageSelector');
-    
-    if (!savedLanguage && !hasSeenSelector) {
-      setIsOpen(true);
-    }
+    // Always show language selector on page load
+    setIsOpen(true);
   }, []);
 
   const handleLanguageSelect = (langCode: Language) => {
     setLanguage(langCode);
-    localStorage.setItem('hasSeenLanguageSelector', 'true');
     setIsOpen(false);
   };
 

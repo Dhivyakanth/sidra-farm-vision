@@ -126,6 +126,73 @@ export default {
     },
     cta: "Start Using Our Services"
   },
+  howItWorks: {
+    title: "How SiDRA Hub Works",
+    subtitle: "Simple steps to get started with smart farming technology",
+    steps: [
+      {
+        title: "Register Your Farm",
+        description: "Sign up and provide your field details to get started"
+      },
+      {
+        title: "Satellite Monitoring Begins", 
+        description: "Our satellites start monitoring your fields 24/7"
+      },
+      {
+        title: "Get Reports on WhatsApp",
+        description: "Receive personalized reports and alerts directly on your phone"
+      },
+      {
+        title: "Follow Expert Advice",
+        description: "Implement recommendations for better crop health and yield"
+      }
+    ]
+  },
+  benefits: {
+    title: "Benefits of Using SiDRA Hub",
+    subtitle: "Discover how our technology can transform your farming experience",
+    items: [
+      {
+        title: "Increased Crop Yield",
+        description: "Get up to 25% higher yields with precise monitoring and timely interventions"
+      },
+      {
+        title: "Reduced Input Costs",
+        description: "Save on water, fertilizers, and pesticides with optimized usage recommendations"
+      },
+      {
+        title: "Early Problem Detection",
+        description: "Identify pest attacks, diseases, and stress before they affect your crops"
+      },
+      {
+        title: "Weather-based Planning",
+        description: "Make informed decisions with accurate weather forecasts and alerts"
+      }
+    ]
+  },
+  contact: {
+    title: "Get in Touch",
+    subtitle: "Ready to start your smart farming journey? Contact us today!",
+    form: {
+      name: "Full Name",
+      phone: "Phone Number", 
+      acres: "Land Area (acres)",
+      location: "Location",
+      submit: "Send Message"
+    },
+    info: {
+      phone: "Call Us",
+      email: "Email Us",
+      address: "Visit Us"
+    }
+  },
+  footer: {
+    description: "Empowering farmers with satellite technology for better yields and sustainable farming.",
+    quickLinks: "Quick Links",
+    contact: "Contact Info",
+    social: "Follow Us",
+    rights: "All rights reserved."
+  },
   pricing: {
     title: "Choose Your Plan",
     subtitle: "Select the perfect plan for your farming needs",
