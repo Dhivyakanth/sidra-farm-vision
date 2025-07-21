@@ -13,28 +13,27 @@ const PricingSection = () => {
   const [landArea, setLandArea] = useState("");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
+  const features = t('pricing.features');
+  
   const plans = [
     {
       name: t('pricing.basic.name'),
       price: t('pricing.basic.price'),
       period: t('pricing.basic.period'),
-      description: "Perfect for getting started with smart farming",
-      features: t('pricing.features')
+      description: "Perfect for getting started with smart farming"
     },
     {
       name: t('pricing.standard.name'),
       price: t('pricing.standard.price'),
       period: t('pricing.standard.period'),
       description: "Great value for seasonal planning",
-      features: t('pricing.features'),
       popular: true
     },
     {
       name: t('pricing.economy.name'),
       price: t('pricing.economy.price'),
       period: t('pricing.economy.period'),
-      description: "Best value for long-term farming success",
-      features: t('pricing.features')
+      description: "Best value for long-term farming success"
     }
   ];
 
@@ -106,7 +105,7 @@ const PricingSection = () => {
 
               <CardContent className="space-y-6">
                 <ul className="space-y-3">
-                  {plan.features.map((feature, featureIndex) => (
+                  {features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center space-x-3">
                       <Check className="h-5 w-5 text-primary flex-shrink-0" />
                       <span className="text-foreground">{feature}</span>
