@@ -13,7 +13,8 @@ const PricingSection = () => {
   const [landArea, setLandArea] = useState("");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const features = t('pricing.features');
+  const featuresData = t('pricing.features');
+  const features = Array.isArray(featuresData) ? featuresData : [];
   
   const plans = [
     {
