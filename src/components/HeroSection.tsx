@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Satellite, Smartphone, TrendingUp, Users } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const HeroSection = () => {
+  const { t } = useLanguage();
+  
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -23,12 +26,11 @@ export const HeroSection = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                 SiDRA Hub
                 <span className="block text-3xl md:text-4xl lg:text-5xl text-primary mt-2">
-                  Satellite Driven Rural Agro Hub (SiDRA Hub)
+                  {t('hero.title')}
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
-                Empowering farmers with satellite technology. Get easy-to-understand reports, 
-                timely advice, and better yields. Join us and make farming smarter!
+                {t('hero.subtitle')}
               </p>
             </div>
 
@@ -38,25 +40,25 @@ export const HeroSection = () => {
                 <div className="bg-accent/20 p-2 rounded-lg">
                   <Satellite className="h-5 w-5 text-primary" />
                 </div>
-                <span className="text-sm font-medium">Satellite Monitoring</span>
+                <span className="text-sm font-medium">{t('hero.features.satellite')}</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="bg-accent/20 p-2 rounded-lg">
                   <Smartphone className="h-5 w-5 text-primary" />
                 </div>
-                <span className="text-sm font-medium">WhatsApp Reports</span>
+                <span className="text-sm font-medium">{t('hero.features.whatsapp')}</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="bg-accent/20 p-2 rounded-lg">
                   <TrendingUp className="h-5 w-5 text-primary" />
                 </div>
-                <span className="text-sm font-medium">Better Yields</span>
+                <span className="text-sm font-medium">{t('hero.features.yields')}</span>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="bg-accent/20 p-2 rounded-lg">
                   <Users className="h-5 w-5 text-primary" />
                 </div>
-                <span className="text-sm font-medium">Expert Support</span>
+                <span className="text-sm font-medium">{t('hero.features.support')}</span>
               </div>
             </div>
 
@@ -68,7 +70,7 @@ export const HeroSection = () => {
                 onClick={() => scrollToSection("#contact")}
                 className="group"
               >
-                Get Started Today
+                {t('hero.cta.getStarted')}
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
@@ -76,7 +78,7 @@ export const HeroSection = () => {
                 size="xl"
                 onClick={() => scrollToSection("#how-it-works")}
               >
-                Learn How It Works
+                {t('hero.cta.learnMore')}
               </Button>
             </div>
           </div>
@@ -90,7 +92,7 @@ export const HeroSection = () => {
                 className="w-full h-auto rounded-lg shadow-medium"
               />
               <div className="absolute -bottom-4 -right-4 bg-wheat-gold text-foreground px-4 py-2 rounded-lg shadow-medium">
-                <span className="text-sm font-semibold">First Hub in India! 🌟</span>
+                <span className="text-sm font-semibold">{t('hero.launch')}</span>
               </div>
             </div>
             
@@ -98,7 +100,7 @@ export const HeroSection = () => {
             <div className="absolute -top-6 -left-6 bg-card border border-border rounded-xl p-4 shadow-medium animate-scale-in">
               <div className="text-center">
                 <div className="text-2xl font-bold text-primary">🌾</div>
-                <div className="text-xs text-muted-foreground">Smart Farming</div>
+                <div className="text-xs text-muted-foreground">{t('hero.smartFarming')}</div>
               </div>
             </div>
           </div>

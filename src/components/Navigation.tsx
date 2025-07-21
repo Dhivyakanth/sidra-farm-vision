@@ -2,18 +2,20 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sprout, Phone, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "How It Works", href: "#how-it-works" },
-    { name: "Benefits", href: "#benefits" },
-    { name: "Visitors", href: "#visitors" },
-    { name: "Contact", href: "#contact" },
+    { name: t('navigation.home'), href: "#home" },
+    { name: t('navigation.about'), href: "#about" },
+    { name: t('navigation.services'), href: "#services" },
+    { name: t('navigation.howItWorks'), href: "#how-it-works" },
+    { name: t('navigation.benefits'), href: "#benefits" },
+    { name: t('navigation.visitors'), href: "#visitors" },
+    { name: t('navigation.contact'), href: "#contact" },
   ];
 
   const scrollToSection = (href: string) => {
